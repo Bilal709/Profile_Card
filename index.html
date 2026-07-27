@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Profile Card</title>
+  <style>
+    :root {
+      --page-bg: #eef3f8;
+      --card-bg: #ffffff;
+      --text-main: #17202a;
+      --text-muted: #5d6d7e;
+      --accent: #0f766e;
+      --accent-dark: #115e59;
+      --border: #d8e2ea;
+      --shadow: 0 24px 60px rgba(23, 32, 42, 0.16);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 28px 18px;
+      background:
+        radial-gradient(circle at top left, rgba(15, 118, 110, 0.18), transparent 34rem),
+        linear-gradient(135deg, #eef3f8 0%, #f8fafc 52%, #e8eef3 100%);
+      color: var(--text-main);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .profile-card {
+      width: min(100%, 500px);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      background: var(--card-bg);
+      box-shadow: var(--shadow);
+    }
+
+    .profile-card header {
+      padding: 34px 28px 24px;
+      text-align: center;
+      background: linear-gradient(180deg, #dff3ef 0%, #ffffff 78%);
+    }
+
+    .profile-photo {
+      display: block;
+      margin: 0 auto;
+      width: clamp(118px, 32vw, 150px);
+      aspect-ratio: 1;
+      object-fit: cover;
+      object-position: center 28%;
+      border: 6px solid #ffffff;
+      border-radius: 50%;
+      box-shadow: 0 14px 28px rgba(15, 118, 110, 0.22);
+    }
+
+    h1 {
+      margin: 18px 0 6px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2rem, 7vw, 2.55rem);
+      line-height: 1.05;
+    }
+
+    .role {
+      margin: 0;
+      color: var(--accent-dark);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .bio {
+      padding: 0 34px 28px;
+    }
+
+    .bio p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 1.03rem;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    .reflection {
+      margin: 0 28px 28px;
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: #f8fbfc;
+    }
+
+    .reflection h2 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .reflection p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .profile-card footer {
+      padding: 0 28px 32px;
+    }
+
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      min-height: 46px;
+      padding: 11px 16px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--text-main);
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 180ms ease, border-color 180ms ease, color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .social-links a:hover,
+    .social-links a:focus-visible {
+      border-color: var(--accent);
+      color: var(--accent-dark);
+      box-shadow: 0 10px 22px rgba(15, 118, 110, 0.14);
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    .social-links svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+      flex: 0 0 auto;
+    }
+
+    @media (max-width: 380px) {
+      body {
+        padding: 18px 10px;
+      }
+
+      .profile-card {
+        border-radius: 22px;
+      }
+
+      .profile-card header {
+        padding: 28px 20px 20px;
+      }
+
+      .bio {
+        padding: 0 22px 24px;
+      }
+
+      .reflection {
+        margin: 0 18px 24px;
+        padding: 18px;
+        border-radius: 16px;
+      }
+
+      .profile-card footer {
+        padding: 0 18px 26px;
+      }
+
+      .social-links {
+        gap: 10px;
+      }
+
+      .social-links a {
+        padding: 10px 13px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <article class="profile-card" aria-labelledby="profile-name">
+    <header>
+      <img
+        class="profile-photo"
+        src="profile banner.jpg"
+        alt="Profile photo of Muhammad Bilal"
+      >
+      <h1 id="profile-name">Muhammad Bilal</h1>
+      <p class="role">Frontend Developer</p>
+    </header>
+
+    <section class="bio" aria-label="Short biography">
+      <p>
+        Muhammad is learning how to build thoughtful, accessible web interfaces with
+        clean HTML and carefully organized CSS. He enjoys turning small practice
+        projects into polished experiences that feel friendly, focused, and easy to read.
+      </p>
+    </section>
+
+    <section class="reflection" aria-labelledby="reflection-title">
+      <h2 id="reflection-title">CSS Reflection</h2>
+      <p>
+        The spacing properties were the most confusing at first because margin creates
+        space outside an element while padding creates space inside it. Border-radius
+        became clearer once I saw it rounding the actual card and photo edges. Box-shadow
+        took some experimenting, so I adjusted the blur and opacity until it looked soft
+        instead of heavy. I resolved the responsive sizing by using width, max-width, and
+        clamp() so the card still feels balanced at both 350px and 500px.
+      </p>
+    </section>
+
+    <footer>
+      <ul class="social-links" aria-label="Social links">
+        <li>
+          <a href="https://www.linkedin.com/in/muhammad-bilal-9b4253286" aria-label="Visit Muhammad Bilal on LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V8.98h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.29zM5.32 7.41a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.1 20.45H3.54V8.98H7.1v11.47z"/>
+            </svg>
+            LinkedIn
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/Bilal709" aria-label="Visit Muhammad Bilal on GitHub">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2C6.48 2 2 6.58 2 12.21c0 4.5 2.87 8.31 6.84 9.66.5.1.68-.22.68-.49 0-.24-.01-1.04-.01-1.89-2.78.62-3.37-1.21-3.37-1.21-.45-1.18-1.11-1.49-1.11-1.49-.91-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.36-2.22-.26-4.56-1.13-4.56-5.04 0-1.11.39-2.02 1.03-2.74-.1-.26-.45-1.3.1-2.7 0 0 .85-.28 2.75 1.04A9.36 9.36 0 0 1 12 6.69c.85 0 1.7.12 2.5.34 1.9-1.32 2.74-1.04 2.74-1.04.55 1.4.2 2.44.1 2.7.65.72 1.03 1.63 1.03 2.74 0 3.92-2.34 4.78-4.57 5.03.36.32.68.94.68 1.9 0 1.36-.01 2.46-.01 2.8 0 .27.18.59.69.49A10.23 10.23 0 0 0 22 12.21C22 6.58 17.52 2 12 2z"/>
+            </svg>
+            GitHub
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/mbilal__7?igsh=Y3M0YWJuMnRlNnF5" aria-label="Visit Muhammad Bilal on Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2zm0 2A3.8 3.8 0 0 0 4 7.8v8.4A3.8 3.8 0 0 0 7.8 20h8.4a3.8 3.8 0 0 0 3.8-3.8V7.8A3.8 3.8 0 0 0 16.2 4H7.8zm8.7 2.05a1.45 1.45 0 1 1 0 2.9 1.45 1.45 0 0 1 0-2.9zM12 7.2A4.8 4.8 0 1 1 12 16.8 4.8 4.8 0 0 1 12 7.2zm0 2A2.8 2.8 0 1 0 12 14.8 2.8 2.8 0 0 0 12 9.2z"/>
+            </svg>
+            Instagram
+          </a>
+        </li>
+      </ul>
+    </footer>
+  </article>
+</body>
+</html>
